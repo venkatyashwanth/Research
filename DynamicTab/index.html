@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- BootStrap-CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- External-CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="tab-wrapper">
+        <!-- Tab-Buttons -->
+        <ul class="nav nav-tabs position-relative" role="tablist">
+            <li class="nav-item nav-item--custom" role="presentation">
+                <button id="one" class="nav-link active" data-bs-toggle="tab" data-bs-target="#tabItemOne" type="button"
+                    , role="tab" , aria-controls="button1" aria-selected="true">Button1</button>
+            </li>
+            <li class="nav-item nav-item--custom" role="presentation">
+                <button id="two" class="nav-link" data-bs-toggle="tab" data-bs-target="#tabItemTwo" type="button" ,
+                    role="tab" aria-controls="button2" aria-selected="false">Button2</button>
+            </li>
+            <li class="under-line"></li>
+        </ul>
+        <!-- Tab-Content -->
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="tabItemOne" role="tabpanel" aria-labelledby="TabOne">
+                <div class="stroke-text">
+                    <span class="sample-text">Content1</span>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="tabItemTwo" role="tabpanel" aria-labelledby="TabTwo">
+                <div class="stroke-text">
+                    <span class="sample-text">Content2</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Script-File -->
+    <script>
+        const underline = document.querySelector(".under-line");
+        const schedules = document.querySelectorAll(".nav-item--custom");
+
+        function moveLine(element) {
+            console.log();
+            if (element.getAttribute('id') === "two") {
+                underline.style.left = `${element.offsetLeft + 16}px`;
+            } else {
+                underline.style.left = `${element.offsetLeft + 14}px`;
+            }
+        }
+        schedules.forEach((schedule, index) => {
+            schedule.addEventListener('click', (e) => {
+                moveLine(e.target)
+            })
+        })
+    </script>
+</body>
+
+</html>
