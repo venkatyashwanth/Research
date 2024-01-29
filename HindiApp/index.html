@@ -5,27 +5,190 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vocabulary</title>
+    <!-- Swiper-CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Bootstrap-CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- linea - icons -->
+    <link rel="stylesheet" href="./css/icon-font.css">
+
+    <!-- External CSS-->
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <div class="card-wrapper">
-        <!-- Card-1 -->
-        <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="flip-card-front u-center">
-                    <span class="primary-text">
-                        నేను
-                    </span>
+    <main class="main-content">
+        <section class="section">
+            <h2 class="primary-heading-text">Stage - I</h2>
+            <h3 class="secondary-heading-text">Learn</h3>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <!-- 1 -->
+                    <div class="swiper-slide">  
+                        <div class="card-wrapper">
+                            <div class="flip-card click-show">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front u-center">
+                                        <span class="primary-span-text">
+                                            నేను
+                                        </span>
+                                    </div>
+                                    <div class="flip-card-back u-center">
+                                        <span class="primary-span-text">
+                                            मैं
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="click-area">
+                                <span class="secondary-span-text">Hold Card</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2 -->
+                    <div class="swiper-slide">
+                        <div class="card-wrapper">
+                            <div class="flip-card click-show">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front u-center">
+                                        <span class="primary-span-text">
+                                            నేను
+                                        </span>
+                                    </div>
+                                    <div class="flip-card-back u-center">
+                                        <span class="primary-span-text">
+                                            मैं
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="click-area">
+                                <span class="secondary-span-text">Hold Card</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="flip-card-back u-center">
-                    <span class="primary-text">
-                        मैं
-                    </span>
+                <!-- Navigation-Buttons -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+            <h3 class="secondary-heading-text">Practice</h3>
+            <div class="random-card-container">
+                <i id="RandomBtn1" class="icon-basic-mouse custom-icon"></i>
+                <div class="spinner-border spinnerElement" role="status">
+                    <span class="sr-only"></span>
+                </div>
+                <div class="flip-card click-show" id="RandomContainer1">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front u-center">
+                            <span class="primary-span-text card-front-text">
+                                నేను
+                            </span>
+                        </div>
+                        <div class="flip-card-back u-center">
+                            <span class="primary-span-text card-back-text">
+                                मैं
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
+    <script>
+        let btnEl = document.getElementById("RandomBtn1");
+        let randomWrapperEl = document.querySelector(".random-card-container");
+        let randContainerEl = document.getElementById("RandomContainer1");
+        // text-data
+        const textData = [
+            {
+                "telugu": "నేను",
+                "hindi": "मैं"
+            },
+            {
+                "telugu": "నువ్వు",
+                "hindi": "तू"
+            },
+            {
+                "telugu": "నువ్వు",
+                "hindi": "तुम"
+            },
+            {
+                "telugu": "మీరు",
+                "hindi": "आप"
+            },
+            {
+                "telugu": "అతడు",
+                "hindi": "वह"
+            },
+            {
+                "telugu": "ఆమె",
+                "hindi": "वह"
+            },
+            {
+                "telugu": "అది",
+                "hindi": "वह"
+            },
+            {
+                "telugu": "ఇతడు",
+                "hindi": "यह"
+            },
+            {
+                "telugu": "ఈమె",
+                "hindi": "यह"
+            },
+            {
+                "telugu": "ఇది",
+                "hindi": "यह"
+            },
+            {
+                "telugu": "వాలు",
+                "hindi": "वे"
+            },
+            {
+                "telugu": "అవి",
+                "hindi": "वे"
+            },
+            {
+                "telugu": "వీలు",
+                "hindi": "ये"
+            },
+            {
+                "telugu": "ఇవి",
+                "hindi": "ये"
+            },
+            {
+                "telugu": "మేము",
+                "hindi": "हम"
+            },
+            {
+                "telugu": "మనము",
+                "hindi": "हम"
+            }
+        ]
+        btnEl.addEventListener("click", () => {
+            const myfunction = () => {
+                let randNumber = Math.floor(Math.random() * textData.length);
+                randomWrapperEl.querySelector(".spinnerElement").style.display = "none";
+                randContainerEl.style.display = "block";
+                randContainerEl.querySelector(".card-front-text").textContent = textData[randNumber].telugu;
+                randContainerEl.querySelector(".card-back-text").textContent = textData[randNumber].hindi;
+            }
+            const myTimeout = setTimeout(myfunction, 200);
+            randomWrapperEl.querySelector(".spinnerElement").style.display = "block";
+            randContainerEl.style.display = "none";
+        })
+    </script>
+
+
+    <!-- External JS -->
+    <script src="./js/swiper/swiperfiles.js"></script>
 </body>
 
 </html>

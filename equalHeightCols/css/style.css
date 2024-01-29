@@ -1,0 +1,31 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box;
+  font-size: 1.6rem; }
+
+.col-container {
+  display: flex;
+  width: 80%;
+  max-width: 128rem;
+  margin: 0 auto; }
+
+.col {
+  padding: 2rem;
+  flex: 1; }
+  .col:not(:last-child) {
+    margin-right: 2rem; }
+  .col--1 {
+    background: orange; }
+  .col--2 {
+    background: yellow; }
+  .col--3 {
+    background: orange; }

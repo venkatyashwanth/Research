@@ -11,9 +11,21 @@ html {
 body {
   box-sizing: border-box; }
 
-.primary-text {
+.primary-heading-text {
   color: white;
   font-size: 2.8rem; }
+
+.secondary-heading-text {
+  color: white;
+  font-size: 2.4rem; }
+
+.primary-span-text {
+  color: white;
+  font-size: 1.8rem; }
+
+.secondary-span-text {
+  color: white;
+  font-size: 1.2rem; }
 
 .u-center {
   display: flex;
@@ -22,12 +34,11 @@ body {
 
 .flip-card {
   background-color: transparent;
-  width: 300px;
+  width: 100%;
   height: 200px;
   /* Remove this if you don't want the 3D effect */
   perspective: 1000px;
   /* This container is needed to position the front and back side */
-  /* Do an horizontal flip when you move the mouse over the flip box container */
   /* Position the front and back side */
   /* Style the front side (fallback if image is missing) */
   /* Style the back side */ }
@@ -38,8 +49,6 @@ body {
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d; }
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg); }
   .flip-card-front, .flip-card-back {
     position: absolute;
     width: 100%;
@@ -52,3 +61,43 @@ body {
   .flip-card-back {
     background-color: dodgerblue;
     transform: rotateY(180deg); }
+
+.flip-card:hover.hover-show .flip-card-inner {
+  transform: rotateY(180deg); }
+
+.flip-card:active.click-show .flip-card-inner {
+  transform: rotateY(180deg); }
+
+.card-wrapper .click-area {
+  background-color: green;
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer; }
+
+.main-content {
+  background-color: greenyellow; }
+
+.section {
+  max-width: 128rem;
+  margin: 0 auto;
+  height: 100vh; }
+
+.random-card-container {
+  width: 30%;
+  margin: 0 auto;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column; }
+
+.spinnerElement {
+  display: none;
+  justify-self: center;
+  align-self: center; }
+
+.custom-icon {
+  font-size: 2.4rem;
+  cursor: pointer;
+  align-self: flex-end; }

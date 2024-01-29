@@ -1,7 +1,9 @@
-$flipcard-width: 300px;
+$flipcard-width: 100%;
 $flipcard-height: 200px;
 $flipcard-frontBgClr: #bbb;
 $flipcard-backBgClr: dodgerblue;
+
+$displaycard-BgClr: green;
 
 .flip-card {
     background-color: transparent;
@@ -18,13 +20,6 @@ $flipcard-backBgClr: dodgerblue;
         text-align: center;
         transition: transform 0.8s;
         transform-style: preserve-3d;
-    }
-
-    /* Do an horizontal flip when you move the mouse over the flip box container */
-    &:hover {
-        .flip-card-inner {
-            transform: rotateY(180deg);
-        }
     }
 
     /* Position the front and back side */
@@ -47,5 +42,33 @@ $flipcard-backBgClr: dodgerblue;
     &-back {
         background-color: $flipcard-backBgClr;
         transform: rotateY(180deg);
+    }
+}
+
+// Hover-Active 
+.flip-card:hover.hover-show{
+    .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+}
+
+// Click-Active
+.flip-card:active.click-show{
+    .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+}
+
+// Display-Card
+.card-wrapper {
+    // padding: 2rem;
+    .click-area {
+        background-color: $displaycard-BgClr;
+        width: 100%;
+        height: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
     }
 }
