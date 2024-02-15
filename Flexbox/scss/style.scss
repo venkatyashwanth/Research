@@ -1,0 +1,108 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+    font-size: 1.6rem;
+}
+
+.levels{
+    background-color: whitesmoke;
+    margin-bottom: 3rem;
+}
+
+.container {
+    background-color: #ccc;
+    padding: 10px;
+    display: flex;
+}
+
+.item {
+    background-color: #f1425d;
+    padding: 30px;
+    margin: 30px;
+    color: #fff;
+    font-size: 30px;
+}
+
+.btnEl {
+    padding: 2rem;
+    margin: 2rem;
+}
+
+// A1 - classes
+.A1-flex-direction-row{
+    flex-direction: row;
+}
+.A1-flex-direction-row-rev{
+    flex-direction: row-reverse;
+}
+.A1-flex-direction-col{
+    flex-direction: column;
+}
+.A1-flex-direction-col-rev{
+    flex-direction: column-reverse;
+}
+
+// l1 - classes
+.l1-flex-start {
+    justify-content: flex-start;
+}
+
+.l1-flex-center {
+    justify-content: center;
+}
+
+.l1-flex-end {
+    justify-content: flex-end;
+}
+
+.l1-space-between {
+    justify-content: space-between;
+}
+
+.l1-space-around {
+    justify-content: space-around;
+}
+
+.l1-space-evenly {
+    justify-content: space-evenly;
+}
+
+// l2 - classes
+#l2Box {
+    height: 200px;
+    .item:last-child{
+        font-size: 50px;
+    }
+}
+
+.l2-align-stretch {
+    align-items: stretch;
+}
+
+.l2-align-start {
+    align-items: flex-start;
+}
+
+.l2-align-center {
+    align-items: center;
+}
+
+.l2-align-end {
+    align-items: flex-end;
+}
+
+.l2-align-baseline {
+    align-items: baseline;
+}
+

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <!-- A1 -->
+    <div class="levels">
+        <div>
+            <button class="btnEl A1" data-id="A1" data-classitem="A1-flex-direction-row">
+                <span>flex-direction: row</span>
+            </button>
+            <button class="btnEl A1" data-id="A1" data-classitem="A1-flex-direction-row-rev">
+                <span>flex-direction: row-rev</span>
+            </button>
+            <button class="btnEl A1" data-id="A1" data-classitem="A1-flex-direction-col">
+                <span>flex-direction: column</span>
+            </button>
+            <button class="btnEl A1" data-id="A1" data-classitem="A1-flex-direction-col-rev">
+                <span>flex-direction: column</span>
+            </button>
+        </div>
+        <div class="container" id="A1Box">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+        </div>
+    </div>
+
+    <!-- l1 -->
+    <div class="levels">
+        <div>
+            <button class="btnEl l1" data-id="l1" data-classitem="l1-flex-start">
+                <span>justify-content: flex-start</span>
+            </button>
+            <button class="btnEl l1" data-id="l1" data-classitem="l1-flex-center">
+                <span>justify-content: flex-center</span>
+            </button>
+            <button class="btnEl l1" data-id="l1" data-classitem="l1-flex-end">
+                <span>justify-content: flex-end</span>
+            </button>
+            <button class="btnEl l1" data-id="l1" data-classitem="l1-space-between">
+                <span>justify-content: space-between</span>
+            </button>
+            <button class="btnEl l1" data-id="l1" data-classitem="l1-space-around">
+                <span>justify-content: space-around</span>
+            </button>
+            <button class="btnEl l1" data-id="l1" data-classitem="l1-space-evenly">
+                <span>justify-content: space-evenly</span>
+            </button>
+        </div>
+        <div class="container" id="l1Box">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+        </div>
+    </div>
+
+    <!-- l2 -->
+    <div class="levels">
+        <div>
+            <button class="btnEl l2" data-id="l2" data-classitem="l2-align-stretch">
+                <span>align-items: stretch</span>
+            </button>
+            <button class="btnEl l2" data-id="l2" data-classitem="l2-align-start">
+                <span>align-items: flex-start</span>
+            </button>
+            <button class="btnEl l2" data-id="l2" data-classitem="l2-align-center">
+                <span>align-items: flex-center</span>
+            </button>
+            <button class="btnEl l2" data-id="l2" data-classitem="l2-align-end">
+                <span>align-items: flex-end</span>
+            </button>
+            <button class="btnEl l2" data-id="l2" data-classitem="l2-align-baseline">
+                <span>align-items: baseline</span>
+            </button>
+        </div>
+        <div class="container" id="l2Box">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+        </div>
+    </div>
+
+    <script>
+        function modifyClass(lBtn) {
+            lBtn.forEach((btn) => {
+                let btnId = btn.dataset.id;
+                btn.addEventListener("click", () => {
+                    let container = document.querySelector(`#${btnId}Box`);
+                    let classNames = container.classList;
+                    classNames.forEach((className) => {
+                        if (className.startsWith(btnId)) {
+                            container.classList.remove(className)
+                        }
+                    })
+                    let classInsert = btn.dataset.classitem;
+                    container.classList.add(classInsert);
+                })
+            })
+        }
+
+        let A1Btns = document.querySelectorAll(".A1");
+        modifyClass(A1Btns);
+
+        let l1Btns = document.querySelectorAll(".l1");
+        modifyClass(l1Btns);
+
+        let l2Btns = document.querySelectorAll(".l2");
+        modifyClass(l2Btns)
+
+
+    </script>
+</body>
+
+</html>
