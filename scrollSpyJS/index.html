@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScrollSpy</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <section class="main-container">
+        <div class="side-navigation">
+            <ul class="links-list">
+                <li class="list-item">
+                    <a class="link-item nav-link active" id="navLinkOne" href="#contentBox1">Item1</a>
+                </li>
+                <li class="list-item">
+                    <a class="link-item nav-link" id="navLinkTwo" href="#contentBox2">Item2</a>
+                </li>
+                <li class="list-item">
+                    <a class="link-item nav-link" id="navLinkThree" href="#contentBox3">Item3</a>
+                </li>
+                <li class="list-item">
+                    <a class="link-item nav-link" id="navLinkFour" href="#contentBox4">Item4</a>
+                </li>
+                <li class="list-item">
+                    <a class="link-item nav-link" id="navLinkFive" href="#contentBox5">Item5</a>
+                </li>
+                <li class="list-item">
+                    <a class="link-item nav-link" id="navLinkSix" href="#contentBox6">Item6</a>
+                </li>
+                <li class="list-item">
+                    <a class="link-item nav-link" id="navLinkSeven" href="#contentBox7">Item7</a>
+                </li>
+            </ul>
+        </div>
+        <div class="content" id="contentBoxWrapper">
+            <div class="content-box content-box1" data-link="navLinkOne" id="contentBox1">
+                Item-1
+            </div>
+            <div class="content-box content-box2" data-link="navLinkTwo" id="contentBox2">
+                Item-2
+            </div>
+            <div class="content-box content-box3" data-link="navLinkThree" id="contentBox3">
+                Item-3
+            </div>
+            <div class="content-box content-box4" data-link="navLinkFour" id="contentBox4">
+                Item-4
+            </div>
+            <div class="content-box content-box5" data-link="navLinkFive" id="contentBox5">
+                Item-5
+            </div>
+            <div class="content-box content-box6" data-link="navLinkSix" id="contentBox6">
+                Item-6
+            </div>
+            <div class="content-box content-boxlast" data-link="navLinkSeven" id="contentBox7">
+                Item-last
+            </div>
+        </div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            let navBtns = $(".nav-link");
+            $(navBtns).click(function (e) {
+                $(navBtns).removeClass("active");
+                e.target.classList.add('active');
+            })
+            $('#contentBoxWrapper').scroll(() => {
+                let contentBoxes = $(".content-box");
+                $(contentBoxes).each(function () {
+                    let currentEl = $(this);
+                    let positionEl = $(currentEl).offset().top;
+                    if (positionEl >= 0 && positionEl <= 10) {
+                        $(navBtns).removeClass("active");
+                        let targetId = `#${currentEl[0].dataset.link}`;
+                        $(targetId).addClass('active');
+                    }
+                })
+            })
+        }) 
+    </script>
+</body>
+
+</html>

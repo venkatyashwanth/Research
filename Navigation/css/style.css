@@ -1,0 +1,36 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box;
+  font-size: 1.6rem; }
+
+a:link, a:visited {
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block; }
+
+a:hover, a:active {
+  color: white;
+  background-color: goldenrod; }
+
+.nav-item {
+  background-color: gray;
+  display: inline-block; }
+  .nav-item.active {
+    background-color: goldenrod; }
+    .nav-item.active a {
+      color: white; }
+
+.mainpage {
+  height: 50vh;
+  background-color: greenyellow; }

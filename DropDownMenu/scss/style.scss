@@ -1,0 +1,93 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+.dropdown {
+    .dropbtn {
+        width: 20rem;
+        height: 4rem;
+        background-color: rgba(0, 0, 255, 0.404);
+        padding: 1rem 1rem 1rem 4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        span {
+            font-size: 1.6rem;
+        }
+
+        .font-icon{
+            transform: rotate(0deg);
+            transform-origin: center 40%;
+            transition: all .8s;
+            
+        }
+        .font-icon.up{
+            transform: rotate(180deg);
+        }
+        
+    }
+    &__content {
+        max-height: 0;
+        transition: all .8s;
+        overflow: hidden;
+        .sub-tag {
+            width: 20rem;
+            height: 4rem;
+            background-color: rgba(34, 255, 0, 0.404);
+            padding: 1rem 1rem 1rem 4rem;
+            position: relative;
+
+            // Vertical-Line
+            &::before {
+                content: '';
+                position: absolute;
+                left: 1rem;
+                border-left: 1px dashed red;
+                top: 0;
+                bottom: 0;
+            }
+
+            // Horizontal-Line
+            &::after {
+                content: '';
+                position: absolute;
+                left: 1rem;
+                border-top: 1px dashed red;
+                width: 2rem;
+                height: 1px;
+            }
+
+            &:last-child{
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 1rem;
+                    border-left: 1px dashed red;
+                    top: 0;
+                    height: 1rem;
+                }
+            }
+
+            span {
+                font-size: 1.6rem;
+                line-height: .8rem;
+            }
+        }
+        
+        &.show{
+            max-height: 20rem;
+        }
+    }
+}
